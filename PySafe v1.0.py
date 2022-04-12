@@ -68,7 +68,7 @@ def Bool(arg):
     elif arg.lower() == "true":
         return True
 
-#Gets default settings if there is a file that contains them. İf this file doesn't exist, PySafe writes the file itself.
+#Gets default settings if there is a file that contains them. If this file doesn't exist, PySafe writes the file itself.
 def Defaults():
     global DesktopPath, InnerInterval, OuterInterval, NotifyWhenChanged, WriteLog, PrintLog, DeveloperMode, DefaultFile, ReadOnly
 
