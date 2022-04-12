@@ -8,7 +8,7 @@ from stat import S_IWRITE, S_IREAD
 #S_IWRITE = Read-Only mode off
 #S_IREAD = Read-Only mode on
 
-#PySafe v0.13.0
+#PySafe v1.0
 
 #Changelog:
 #Delay variable didn't end up being used in the version 11.1 is now fixed.
@@ -110,7 +110,7 @@ os.mkdir(f"{ScriptPath}\\Logs") if os.path.exists(f"{ScriptPath}\\Logs") == Fals
 Defaults()
 PySafeLog(f"[Pysafe Opened: {PySafeRuntime}]\n\n")
 
-print(Colors.title + "PySafe v0.13.0\n" + Colors.default)
+print(Colors.title + "PySafe v1.0\n" + Colors.default)
 while True:
     print("[Main Menu]")
     print("1| Basic (scans desktop files)")
