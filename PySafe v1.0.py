@@ -58,7 +58,7 @@ OuterInterval = 10
 NotifyWhenChanged = True
 WriteLog = True
 PrintLog = True
-DeveloperMode = False
+DeveloperMode = True
 DefaultFile = None
 ReadOnly = False
 
@@ -209,14 +209,22 @@ for File in os.listdir(Files):
         Cache4.append(None)
 
 if DeveloperMode:
-    print(f"Cache1 (Sizes): {Cache1}")
-    print(f"Cache2 (Changing Time): {Cache2}")
-    print(f"Cache3 (Directories): {Cache3}")
-    print(f"Cache4 (SHA1 Hashes): {Cache4}\n")
+    print(Colors.title + "[Cache1: Sizes]" + Colors.default)
+    for index in range(len(Cache1)): print(f"{list(os.listdir(Files))[index]}: {Cache1[index]} Bytes")
+    print()
+    print(Colors.title + "[Cache2: Last Modifying Time]" + Colors.default)
+    for index in range(len(Cache2)): print(f"{list(os.listdir(Files))[index]}: {Cache2[index]}")
+    print()
+    print(Colors.title + "[Cache3: Directories]" + Colors.default)
+    for index in range(len(Cache3)): print(f"{list(os.listdir(Files))[index]}: {Cache3[index]}")
+    print()
+    print(Colors.title + "[Cache4: Hashes]" + Colors.default)
+    for index in range(len(Cache4)): print(f"{list(os.listdir(Files))[index]}: {Cache4[index]}")
+    print()
 
 #The loop that checks the file's data for modification.
 while True:
-    print(Colors.warning + "[WARNING] File protection is not on. The files are not protected by PySafe!\033[1;37;40m" + Colors.default) if ReadOnly == False else None
+    print(Colors.warning + "[WARNING] File protection is not on. The files are not protected by PySafe!" + Colors.default) if ReadOnly == False else None
 
     for File in os.listdir(Files):
         if Files[len(Files) - 1] != "\\":
