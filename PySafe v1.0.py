@@ -322,8 +322,9 @@ while True:
                     
                     if WriteLog:
                         PySafeLog(f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}]\n")
-                        PySafeLog(f"Directory size: {New_Size}\n")
+                        PySafeLog(f"File size: {New_Size}\n")
                         PySafeLog(f"Last Changed: {New_Last_Change_Time}\n")
+                        PySafeLog(f"File SHA1: {NewFileHash}\n")
                         PySafeLog(f"File: {File}\n\n")
             
             time.sleep(InnerInterval)
