@@ -47,7 +47,7 @@ class Colors:
 #Not Saved to DefaultSettings.txt:
 toaster = ToastNotifier()
 PySafeRuntime = str(datetime.now())
-ScriptPath = "C" + os.path.dirname(os.path.abspath(__file__))[1:]
+ScriptPath = os.path.dirname(os.path.abspath(__file__))
 NumberOfChecks = 0
 NumberOfLaps = 0
 
@@ -172,8 +172,8 @@ while True:
             os.system("cls")
             LogFile = open(f"{ScriptPath}\\Logs\\{PySafeRuntime[:10]}.txt", "r")
             line = 1
-            for line in LogFile:
-                print(f"{line}| {line.strip()}")
+            for Line in LogFile:
+                print(f"{line}| {Line.strip()}")
                 line += 1
             LogFile.close()
 
@@ -189,7 +189,7 @@ for File in os.listdir(Files):
         FilePath = Files + "\\" + File
     else:
         FilePath = Files + File
-    
+
     if ReadOnly:
         os.chmod(FilePath, S_IREAD)
 
@@ -252,22 +252,22 @@ while True:
                 if bool(Cache3[DirFiles.index(File)]):
                     if PrintLog:
                         print(Colors.title + f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}] [Control + C to terminate]" + Colors.default)
-                        print(f"Directory Changed!")
+                        print(f"Folder Changed!")
                         print(f"Old Size: {Cache1[DirFiles.index(File)]}")
                         print(f"Old Last Changed: {Cache2[DirFiles.index(File)]}")
                         print(f"New Size: {New_Size}")
                         print(f"New Last Changed: {New_Last_Change_Time}")
-                        print(f"Directory: {File}")
+                        print(f"Folder: {File}")
                         print(f"Ram Available: {int(psutil.virtual_memory().available / 2 ** 20)} MB\n")
 
                     if WriteLog:
                         PySafeLog(f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}]\n")
-                        PySafeLog(f"Directory Changed!\n")
+                        PySafeLog(f"Folder Changed!\n")
                         PySafeLog(f"Old Size: {Cache1[DirFiles.index(File)]}\n")
                         PySafeLog(f"Old Last Changed: {Cache2[DirFiles.index(File)]}\n")
                         PySafeLog(f"New Size: {New_Size}\n")
                         PySafeLog(f"New Last Changed: {New_Last_Change_Time}\n")
-                        PySafeLog(f"Directory: {File}\n\n")
+                        PySafeLog(f"Folder: {File}\n\n")
 
                 else:
                     if PrintLog:
@@ -300,16 +300,16 @@ while True:
                 if bool(Cache3[DirFiles.index(File)]):
                     if PrintLog:
                         print(Colors.title + f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}] [Control + C to terminate]" + Colors.default)
-                        print(f"Directory size: {New_Size}")
+                        print(f"Folder size: {New_Size}")
                         print(f"Last Changed: {New_Last_Change_Time}")
-                        print(f"Directory: {File}")
+                        print(f"Folder: {File}")
                         print(f"Ram Available: {int(psutil.virtual_memory().available / 2 ** 20)} MB\n")
 
                     if WriteLog:
                         PySafeLog(f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}]\n")
-                        PySafeLog(f"Directory size: {New_Size}\n")
+                        PySafeLog(f"Folder size: {New_Size}\n")
                         PySafeLog(f"Last Changed: {New_Last_Change_Time}\n")
-                        PySafeLog(f"Directory: {File}\n\n")
+                        PySafeLog(f"Folder: {File}\n\n")
 
                 else:
                     if PrintLog:
@@ -319,14 +319,14 @@ while True:
                         print(f"File SHA1: {NewFileHash}")
                         print(f"File: {File}")
                         print(f"Ram Available: {int(psutil.virtual_memory().available / 2 ** 20)} MB\n")
-                    
+
                     if WriteLog:
                         PySafeLog(f"[Time: {Time} | File checking number: {NumberOfChecks} | Lap number: {NumberOfLaps}]\n")
                         PySafeLog(f"File size: {New_Size}\n")
                         PySafeLog(f"Last Changed: {New_Last_Change_Time}\n")
-                        PySafeLog(f"File SHA1: {NewFileHash}\n")
+                        PySafeLog(f"File SHA1: {NewFileHash}")
                         PySafeLog(f"File: {File}\n\n")
-            
+
             time.sleep(InnerInterval)
 
         except Exception as Error:
@@ -334,9 +334,9 @@ while True:
             print(f"[ERROR: {Error}] PySafe can't find the file or folder: {File}")
             PySafeLog(f"[Time: {Time}]\n") if WriteLog else None
             PySafeLog(f"[ERROR: {Error}] PySafe can't find the file or folder: {File}\n\n") if WriteLog else None
-            
+
             toaster.show_toast("PySafe Notification Service", "PySafe encountered an error!", duration=8) if NotifyWhenChanged else None
             exit()
-    
+
     NumberOfLaps += 1
     time.sleep(OuterInterval)
