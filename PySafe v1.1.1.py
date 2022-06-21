@@ -147,6 +147,7 @@ while True:
         print(f"5| Print Log: {PrintLog}")
         print(f"6| Developer Mode: {DeveloperMode}")
         print(f"7| Read-Only: {ReadOnly}")
+        print(f"8| Duration: {Duration}")
         print(f"(Enter): Go back\n")
         Change = input("Select an option to change: ")
 
@@ -157,6 +158,7 @@ while True:
         if Change == "5": PrintLog           = Bool(input("Set new value (Print Log): "))
         if Change == "6": DeveloperMode      = Bool(input("Set new value (Developer Mode): "))
         if Change == "7": ReadOnly           = Bool(input("Set new value (Read-Only): "))
+        if Change == "7": Duration           = int(input("Set new value (Duration): "))
 
     elif Choose == "5":
         print("Closing PySafe...")
