@@ -144,7 +144,7 @@ while True:
         print("DefaultFile path does not exist.")
 
     elif Choose == "4":
-        print("[PySafe Current Vaules]")
+        print("[PySafe Current Values]")
         print(f"1| Inner Interval: {InnerInterval}")
         print(f"2| Outer Interval: {OuterInterval}")
         print(f"3| Notify When Changed: {NotifyWhenChanged}")
